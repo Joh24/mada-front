@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <section class="cover-sec border border border-white border-left-0 border-right-0 border-top-0">
+      <!--img src="assets/img/prof/cover-img.jpg" alt=""-->
+      <div class=""  style="height: 200px !important; background:url('assets/img/pdc.jpg'); background-attachment:fixed; background-size: cover; background-repeat: no-repeat; background-position: center; filter: blur(0px);">
+          
+      </div>
+
+  </section>
+</div>
+
+<!------------------------------>
+<mat-grid-list cols="1" rowHeight="2:1">
+
+      <!----->
+        <mat-form-field appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>First name</mat-label>
+          <input matInput>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Sexe</mat-label>
+          <mat-select>
+            <mat-option value="0">Femme</mat-option>
+            <mat-option value="1">Homme</mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Date de naissance</mat-label>
+          <input matInput [matDatepicker]="picker">
+          <!--<mat-hint>MM/DD/YYYY</mat-hint>-->
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Pays</mat-label>
+          <mat-select>
+            <mat-option value="0">Madagascar</mat-option>
+            <mat-option value="1">Belgique</mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Ville</mat-label>
+          <mat-select>
+            <mat-option value="0">Toamasina</mat-option>
+            <mat-option value="1">Antananarivo</mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+        
+        <mat-form-field appearance="fill">
+          <mat-label>Nombre d'enfants</mat-label>
+          <input matInput type="number">
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label> A la recherche</mat-label>
+          <mat-select>
+            <mat-option value="0">d'une femme</mat-option>
+            <mat-option value="1">d'un homme</mat-option>
+          </mat-select>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Facebook</mat-label>
+          <input matInput>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Skype</mat-label>
+          <input matInput>
+        </mat-form-field><br/>
+
+        <mat-form-field appearance="fill">
+          <mat-label>WhatsApp</mat-label>
+          <input matInput>
+        </mat-form-field><br/>
+      <!----->
+
+    </mat-grid-list>

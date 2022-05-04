@@ -16,18 +16,123 @@
                     <div class="col-lg-6">
                         <div class="login-sec">
                             <ul class="sign-control">
-                                <li data-tab="tab-1" class="animated fadeIn"><a
-                                        href="https://gambolthemes.net/workwise-new/sign-in.html#" title="">Sign
-                                        in</a></li>
-                                <li data-tab="tab-2" class="animated fadeIn current"><a
-                                        href="https://gambolthemes.net/workwise-new/sign-in.html#" title="">Sign
-                                        up</a></li>
+                                <li data-tab="tab-1" class="animated fadeIn">
+                                    <a routerLink='/login' title="">Sign in</a>
+                                </li>
+                                <li data-tab="tab-2" class="animated fadeIn current">
+                                    <a routerLink='/register' title="">Sign up</a>
+                                </li>
                             </ul>
                             <div class="sign_in_sec animated fadeIn current" id="tab-2">
                                
                                 <div class="dff-tab current" id="tab-3">
-                                    <form>
+                                    <form [formGroup]="userInfo" (ngSubmit)="onSubmit()" >
                                         <div class="row">
+
+
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="text" formControlName="username" placeholder="username">
+                                                    <i class="la la-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="text" formControlName="phonenumber" placeholder="phonenumber">
+                                                    <i class="la la-phone"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="text" formControlName="email" placeholder="e-mail">
+                                                    <i class="la la-envelope"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="password" formControlName="password" placeholder="Password">
+                                                    <i class="la la-lock"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="password" formControlName="repeatpassword"
+                                                        placeholder="Repeat Password">
+                                                    <i class="la la-lock"></i>
+                                                </div>
+                                            </div>
+                                            
+                                            <!--div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="text" name="firstname" placeholder="firstname">
+                                                    <i class="la la-user"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="text" name="name" placeholder="name">
+                                                    <i class="la la-globe"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <select>
+                                                        <option>sexe</option>
+                                                        <option>Man</option>
+                                                        <option>Woman</option>
+                                                    </select>
+                                                    <i class="la la-dropbox"></i>
+                                                    <span><i class="fa fa-ellipsis-h"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="birth" name="text" placeholder="birth">
+                                                    <i class="la la-lock"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <select>
+                                                        <option>country</option>
+                                                        <option>country 01</option>
+                                                        <option>country 02</option>
+                                                    </select>
+                                                    <i class="la la-dropbox"></i>
+                                                    <span><i class="fa fa-ellipsis-h"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <select>
+                                                        <option>town</option>
+                                                        <option>town 01</option>
+                                                        <option>town 02</option>
+                                                    </select>
+                                                    <i class="la la-dropbox"></i>
+                                                    <span><i class="fa fa-ellipsis-h"></i></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <select>
+                                                        <option>langue</option>
+                                                        <option>langue 01</option>
+                                                        <option>langue 02</option>
+                                                    </select>
+                                                    <i class="la la-dropbox"></i>
+                                                    <span><i class="fa fa-ellipsis-h"></i></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-12 no-pdd">
+                                                <div class="sn-field">
+                                                    <input type="password" name="repeat-password"
+                                                        placeholder="Repeat Password">
+                                                    <i class="la la-lock"></i>
+                                                </div>
+                                            </div>
+                                            
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="sn-field">
                                                     <input type="text" name="name" placeholder="Full Name">
@@ -66,6 +171,7 @@
                                                     <i class="la la-lock"></i>
                                                 </div>
                                             </div>
+
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="checky-sec st2">
                                                     <div class="fgt-sec">
@@ -78,10 +184,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+
+                                            <!--------------
                                             <div class="col-lg-12 no-pdd">
                                                 <button type="submit" value="submit">Get Started</button>
                                             </div>
                                         </div>
+
                                     </form>
                                 </div>
                                 <div class="dff-tab" id="tab-4">
@@ -112,7 +222,7 @@
                                                         placeholder="Repeat Password">
                                                     <i class="la la-lock"></i>
                                                 </div>
-                                            </div>
+                                            </div-->
                                             <div class="col-lg-12 no-pdd">
                                                 <div class="checky-sec st2">
                                                     <div class="fgt-sec">
@@ -125,8 +235,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12 no-pdd">
-                                                <button type="submit" value="submit">Get Started</button>
+                                            <div  class="col-lg-12 no-pdd d-flex justify-content-center">
+                                                <button  type="submit" value="submit">Get Started</button>
                                             </div>
                                         </div>
                                     </form>

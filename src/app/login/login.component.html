@@ -16,26 +16,26 @@
                     <div class="col-lg-6">
                         <div class="login-sec">
                             <ul class="sign-control">
-                                <li data-tab="tab-1" class="animated fadeIn current"><a
-                                        href="https://gambolthemes.net/workwise-new/sign-in.html#" title="">Sign
-                                        in</a></li>
-                                <li data-tab="tab-2" class="animated fadeIn"><a
-                                        href="https://gambolthemes.net/workwise-new/sign-in.html#" title="">Sign
-                                        up</a></li>
+                                <li data-tab="tab-1" class="animated fadeIn current">
+                                    <a routerLink='/login' title="">Sign in</a>
+                                </li>
+                                <li data-tab="tab-2" class="animated fadeIn">
+                                    <a routerLink='/register' title="">Sign up</a>
+                                </li>
                             </ul>
                             <div class="sign_in_sec animated fadeIn  current" id="tab-1">
-                                <h3>Sign in</h3>
-                                <form>
+                                <p *ngIf = "errorMsg" class="text-center mb-2 text-danger">Invalid credentials.</p>
+                                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                                     <div class="row">
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input type="text" name="username" placeholder="Username">
+                                                <input type="text" name="username" placeholder="Username" formControlName="username" (click) = "hiddenError()">
                                                 <i class="la la-user"></i>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 no-pdd">
                                             <div class="sn-field">
-                                                <input type="password" name="password" placeholder="Password">
+                                                <input type="password" name="password" placeholder="Password" formControlName="password" (click) = "hiddenError()">
                                                 <i class="la la-lock"></i>
                                             </div>
                                         </div>
@@ -52,8 +52,13 @@
                                                     title="">Forgot Password?</a>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12 no-pdd">
+                                        <div *ngIf = "spinner == false" class="col-lg-12 no-pdd d-flex justify-content-center">
                                             <button type="submit" value="submit">Sign in</button>
+                                        </div>
+                                        <div *ngIf = "spinner" class="col-lg-12 no-pdd d-flex justify-content-center">
+                                            <button type="submit" value="submit" disabled>
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>

@@ -1,6 +1,10 @@
 <div class="wrapper">
-    <section class="cover-sec">
-        <img src="assets/img/prof/cover-img.jpg" alt="">
+    <section class="cover-sec border border border-white border-left-0 border-right-0 border-top-0">
+        <!--img src="assets/img/prof/cover-img.jpg" alt=""-->
+        <div class=""  style="height: 200px !important; background:url('assets/img/pdc.jpg'); background-attachment:fixed; background-size: cover; background-repeat: no-repeat; background-position: center; filter: blur(0px);">
+            
+        </div>
+
     </section>
     <main>
         <div class="main-section">
@@ -11,16 +15,25 @@
                             <div class="main-left-sidebar">
                                 <div class="user_profile">
                                     <div class="user-pro-img">
-                                        <img src="assets/img/prof/user-pro-img.png" alt="">
+                                        <div (click)="viewPicPro()" class="border border-white rounded-circle container p-0 text-center d-flex justify-content-center" style="height: 180px !important; width: 180px !important; background-image: url('{{urlBack+usr.pdp}}'); background-size: 100%; background-position: center;">
+                                            <!--img class="img-fluid" src="assets/img/pdp.jpg" alt="" style="width: auto; height: 100%;"-->
+                                        </div>
+                                        <!--img src="assets/img/prof/user-pro-img.png" alt=""-->
                                     </div>
                                     <div class="user_pro_status">
                                         <ul class="flw-hr">
-                                            <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
-                                                    title="" class="flww"><i class="la la-plus"></i> Follow</a></li>
-                                            <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
-                                                    title="" class="hre">Hire</a></li>
+                                            <li>
+                                                <h3><i class="la la-user"></i> {{usr.username}}</h3>
+                                                <p><!--i *ngIf ="usr.sexe == Homme" class="la la-mars"></i><i *ngIf ="usr.sexe == Femme" class="la la-venus"></i-->{{usr.sexe}}, {{" "+usr.birth+" "}} years old</p>
+                                            </li>
                                         </ul>
-                                        <ul class="flw-status">
+                                        <ul class="flw-hr">
+                                            <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                    title="" class="flww"><i class="la la-plus"></i> Ajouter</a></li><!------Like---------->
+                                            <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                    title="" class="hre">Message</a></li><!------Like---------->
+                                        </ul>
+                                        <!--ul class="flw-status">
                                             <li>
                                                 <span>Following</span>
                                                 <b>34</b>
@@ -29,24 +42,24 @@
                                                 <span>Followers</span>
                                                 <b>155</b>
                                             </li>
-                                        </ul>
+                                        </ul-->
                                     </div>
                                     <ul class="social_links">
-                                        <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
-                                                title=""><i class="la la-globe"></i> www.example.com</a></li>
-                                        <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
-                                                title=""><i class="fa fa-facebook-square"></i>
-                                                Http://www.facebook.com/john...</a></li>
-                                        <li><a href="https://gambolthemes.net/workwise-new/user-profile.html#"
-                                                title=""><i class="fa fa-twitter"></i>
-                                                Http://www.Twitter.com/john...</a></li>
+                                        <li><a style="color : black"><i *ngIf ="usr.searchfor == Homme" class="la la-mars"></i><i *ngIf ="usr.searchfor == Femme" class="la la-venus"></i> Besoin d'une {{usr.searchfor}}</a></li>
+                                        <li><a style="color : black"><i class="la la-male"></i>Nombre d'enfants : {{usr.child}}</a></li>
+                                        <li><a style="color : black"><i class="la la-map-marker"></i>{{usr.town}}</a></li>
+                                        <li><a style="color : black"><i class="la la-language"></i>{{usr.langue}}</a></li>
+                                        <li><a style="color : black"><i class="la la-phone"></i>{{usr.phonenumber}}</a></li>
+                                        <li><a href="{{usr.socialnetwork.facebook}}"><i class="fa fa-facebook-square"></i>facebook</a></li>
+                                        <li><a href="{{usr.socialnetwork.skype}}"><i class="fa fa-skype"></i>skype</a></li>
+                                        <li><a href="{{usr.socialnetwork.instagram}}" ><i class="fa fa-instagram"></i>instagram</a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="main-ws-sec">
-                                <div class="user-tab-sec">
+                                <!--div class="user-tab-sec">
                                     <h3>John Doe</h3>
                                     <div class="star-descp">
                                         <span>Graphic Designer at Self Employed</span>
@@ -58,108 +71,108 @@
                                             <li><i class="fa fa-star-half-o"></i></li>
                                         </ul>
                                     </div>
-                                </div>
+                                </div-->
                                 
                                 <div class="product-feed-tab current" id="portfolio-dd">
                                     <div class="portfolio-gallery-sec">
-                                        <h3>Portfolio</h3>
+                                        <h3>Photos</h3>
                                         <div class="gallery_pf">
                                             <div class="row">
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo01, 1)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img1.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo01}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo02, 2)"><!--assets/img/prof/pf-img2.jpg-->
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img2.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo02}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a 
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo03, 3)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img3.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo03}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo04, 4)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img4.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo04}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo05, 5)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img5.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo05}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo06, 6)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img6.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo06}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo07, 7)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img7.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo07}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo08, 8)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img8.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo08}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo09, 9)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img9.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo09}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                                <div class="col-lg-4 col-md-4 col-sm-6 col-6" (click)="changeViewPicUrl(usr.photos.photo10, 10)">
                                                     <div class="gallery_pt">
-                                                        <img src="assets/img/prof/pf-img10.jpg"
+                                                        <img src="{{urlBack+usr.photos.photo10}}"
                                                             alt="">
-                                                        <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
+                                                        <a
                                                             title=""><img
                                                                 src="assets/img/prof/all-out.png"
                                                                 alt=""></a>
@@ -173,32 +186,57 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="right-sidebar">
-                                <div class="message-btn">
+                                <!--div class="message-btn">
                                     <a href="https://gambolthemes.net/workwise-new/user-profile.html#" title=""><i
                                             class="fa fa-envelope"></i> Message</a>
-                                </div>
+                                </div-->
                                 <div class="widget widget-portfolio">
                                     <div class="sd-title">
                                         <h3>Suggestions</h3>
                                         <i class="la la-ellipsis-v"></i>
                                     </div>
                                     <div class="suggestions-list">
-                                        <div class="suggestion-usd">
-                                            <img src="assets/img/prof/s1.png" alt="">
+                                        <div class="suggestion-usd d-flex justify-content-between">
+                                            <!--img src="assets/img/prof/s1.png" alt=""--->
+                                            <div class="m-0 border border-white rounded-circle container p-0 text-center d-flex justify-content-center" style="height: 35px !important; width: 35px !important; background-image: url('assets/img/pdp.jpg'); background-size: 100%; background-position: center;">
+                                                <!--img class="img-fluid" src="assets/img/pdp.jpg" alt="" style="width: auto; height: 100%;"-->
+                                            </div>
                                             <div class="sgt-text">
                                                 <h4>Jessica William</h4>
                                                 <span>Graphic Designer</span>
                                             </div>
                                             <span><i class="la la-plus"></i></span>
                                         </div>
-                                        <div class="suggestion-usd">
+                                        <div class="suggestion-usd d-flex justify-content-between">
+                                            <!--img src="assets/img/prof/s1.png" alt=""--->
+                                            <div class="m-0 border border-white rounded-circle container p-0 text-center d-flex justify-content-center" style="height: 35px !important; width: 35px !important; background-image: url('assets/img/pdp.jpg'); background-size: 100%; background-position: center;">
+                                                <!--img class="img-fluid" src="assets/img/pdp.jpg" alt="" style="width: auto; height: 100%;"-->
+                                            </div>
+                                            <div class="sgt-text">
+                                                <h4>Jessica William</h4>
+                                                <span>Graphic Designer</span>
+                                            </div>
+                                            <span><i class="la la-plus"></i></span>
+                                        </div>
+                                        <div class="suggestion-usd d-flex justify-content-between">
+                                            <!--img src="assets/img/prof/s1.png" alt=""--->
+                                            <div class="m-0 border border-white rounded-circle container p-0 text-center d-flex justify-content-center" style="height: 35px !important; width: 35px !important; background-image: url('assets/img/pdp.jpg'); background-size: 100%; background-position: center;">
+                                                <!--img class="img-fluid" src="assets/img/pdp.jpg" alt="" style="width: auto; height: 100%;"-->
+                                            </div>
+                                            <div class="sgt-text">
+                                                <h4>Jessica William</h4>
+                                                <span>Graphic Designer</span>
+                                            </div>
+                                            <span><i class="la la-plus"></i></span>
+                                        </div>
+                                        <!--div class="suggestion-usd">
                                             <img src="assets/img/prof/s2.png" alt="">
                                             <div class="sgt-text">
                                                 <h4>John Doe</h4>
                                                 <span>PHP Developer</span>
                                             </div>
                                             <span><i class="la la-plus"></i></span>
-                                        </div>
+                                        </div-->
                                         <div class="view-more">
                                             <a href="https://gambolthemes.net/workwise-new/user-profile.html#"
                                                 title="">View More</a>
@@ -212,4 +250,20 @@
             </div>
         </div>
     </main>
+</div>
+
+<div *ngIf="viewPicture" (click)="viewPic()" class="pr-3 pt-3 d-flex justify-content-end" style="color: white; font-size: 40px; position: fixed; z-index: 99999999; width: 100%;"><a><i class="la la-times"></i></a></div>
+<div *ngIf="viewPicture" class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9);z-index: 9999999;">
+    <div class="pr-3 pl-3 d-flex justify-content-between" style="color: white; font-size: 40px; position: fixed; z-index: 99999999; width: 100%;">
+        <a (click)="getPreviewPic()"  style="color: white; font-size: 50px; z-index: 99999999;"><i class="la la-angle-left"></i></a>
+        <a (click)="getNextPic()" style="color: white; font-size: 50px; z-index: 99999999;"><i class="la la-angle-right"></i></a>
+    </div>
+    
+    <img src="{{viewPictureUrl}}" alt="" style="max-width: 99%; max-height: 99%;">
+    
+</div>
+
+<div *ngIf="viewPicturePro" (click)="viewPicPro()" class="pr-3 pt-3 d-flex justify-content-end" style="color: white; font-size: 40px; position: fixed; z-index: 99999999; width: 100%;"><a><i class="la la-times"></i></a></div>
+<div *ngIf="viewPicturePro" class="d-flex justify-content-center align-items-center" style="width: 100%; height: 100%; position: fixed; background-color: rgba(0,0,0,0.9);z-index: 9999999;">
+    <img src="{{urlBack+usr.pdp}}" alt="" style="max-width: 99%; max-height: 99%;">
 </div>
